@@ -2,9 +2,7 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "WebFetch(domain:www.ucsc.org.ua)",
-      "WebFetch(domain:gisuvecon.com)",
-      "WebFetch(domain:dom.ria.com)"
+      "WebFetch"
     ]
   }
 }

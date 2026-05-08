@@ -1,5 +1,5 @@
 ---
-description: Фаза 5. Для каждой Tier 1 компании создать пакет outreach — письмо UA + 2 промпта для картинок.
+description: Фаза 5. Для каждой Tier 1 компании создать пакет outreach — письмо UA + промпт-пакет с референсами для ручной генерации брендированного визуала.
 ---
 
 Прочитай `@CURRENT_PHASE.md` и убедись, что фаза = `phase_5`.
@@ -22,23 +22,29 @@ Tier 2 и Tier 3 в этой фазе НЕ обрабатываем.
 Для **КАЖДОЙ** Tier 1 компании последовательно (или параллельно
 батчами по 3–5):
 
-### a. Image prompts
+### a. Image prompt + референсы
 
 Спавни subagent `image-prompt-builder` через Task tool. В промпт передай:
 - название компании
 - путь к профилю: `02_priority/tier1/<slug>/profile.md`
-- путь сохранения: `02_priority/tier1/<slug>/image_prompts.md`
 - путь к фото объекта: `00_object/photos/Чистый фасад - Copy.jpeg`
-  (это «как сейчас» референс для промпта Б)
+- путь сохранения промпта: `02_priority/tier1/<slug>/image_prompt.md`
+- путь к папке референсов: `02_priority/tier1/<slug>/refs/`
 
-Дождись завершения — должен появиться файл с двумя промптами.
+Агент должен (а) создать `image_prompt.md` с одним брендированным
+промптом по 8-блочному шаблону, (б) скопировать фото фасада в
+`refs/building.jpg`, (в) скачать логотип компании с её сайта в
+`refs/logo.<ext>` (или оставить `refs/logo_NOT_FOUND.txt`),
+(г) положить `refs/README.md` с инструкцией оператору.
+
+Дождись завершения.
 
 ### b. Letter
 
 Спавни subagent `letter-writer` через Task tool. В промпт передай:
 - название компании
 - путь к профилю: `02_priority/tier1/<slug>/profile.md`
-- путь к промптам: `02_priority/tier1/<slug>/image_prompts.md`
+- путь к промпту: `02_priority/tier1/<slug>/image_prompt.md`
   (для ссылки в секции «Візуалізація»)
 - путь сохранения: `02_priority/tier1/<slug>/letter_uk.md`
 
@@ -48,7 +54,10 @@ Tier 2 и Tier 3 в этой фазе НЕ обрабатываем.
 
 Убедись, что в папке `02_priority/tier1/<slug>/` лежит:
 - `profile.md`
-- `image_prompts.md`
+- `image_prompt.md`
+- `refs/building.jpg`
+- `refs/logo.<ext>` **или** `refs/logo_NOT_FOUND.txt`
+- `refs/README.md`
 - `letter_uk.md`
 
 Если чего-то нет — повтори соответствующий subagent.
@@ -66,15 +75,20 @@ Tier 2 и Tier 3 в этой фазе НЕ обрабатываем.
 ## Что должен сделать оператор перед отправкой
 
 1. По каждой папке `02_priority/tier1/<slug>/`:
-   - Сгенерировать 2 картинки через Nano Banana / Google Flow по
-     промптам из `image_prompts.md` → сохранить в эту же папку
-     как `image_current.png` и `image_branded.png`.
+   - Открыть `refs/README.md` и собрать брендированный визуал в
+     Gemini Nano Banana / Flow по `image_prompt.md` + референсам из
+     `refs/` (building.jpg, logo.<ext>). Финальный кадр сохранить
+     как `branded_vision.jpg` в корне папки компании.
+   - Если `refs/logo_NOT_FOUND.txt` присутствует — сначала вручную
+     скачать логотип с указанного в нём URL, положить рядом как
+     `refs/logo.png` (или .svg/.jpg).
    - Открыть `letter_uk.md`, проверить текст, при необходимости
      подправить под актуальные новости компании.
    - Найти контакт получателя (`profile.md` → раздел «Контактна
      стратегія»).
-   - Отправить письмо + 2 картинки на найденный email или через
-     форму «Suggest location».
+   - Отправить письмо + 2 картинки (`refs/building.jpg` —
+     поточний фасад, `branded_vision.jpg` — візуал з брендом)
+     на найденный email или через форму «Suggest location».
    - Зафиксировать факт отправки в `03_outreach/sent_log.csv`.
 
 ## Список Tier 1 пакетов
