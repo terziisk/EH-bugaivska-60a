@@ -113,10 +113,10 @@ addresses на офіційному сайті: `pr@`, `office@`, `contact@`); L
 
 ### Хвиля 2 — скор 18 (день 4–6)
 
-7. **Camotec (18)** — B2B email + Instagram DM як підкріплення
-8. **TTX (18)** — generic email + Facebook
-9. **JYSK (18)** — формальний канал розширення
-10. **Accord Import (18)** — LinkedIn Грабара як основний
+7. **Camotec (18)** — `gurt@camotec.ua` (B2B-канал). У темі: «До відділу розвитку виробництва / B2B». Резерв verified email на @camotec.ua публічно не знайдено — якщо #1 без відгуку 7 днів, оператор доискує вручну (footer сайту, «Кар'єра»). Instagram DM @camotec.ua не використовуємо.
+8. **TTX (18)** — `ttx.zp@gmail.com` (підтверджено через Ukrlegprom). У темі: «До відділу розвитку / B2B PatchEra». Резерв: `patchera.wear@gmail.com` (B2B-підрозділ PatchEra). Facebook / Instagram @ttx_ukraine не використовуємо.
+9. **JYSK (18)** — `expansionua@jysk.com` (офіційний канал розширення, jysk.ua/spivrobitnytstvo-jysk). У темі: «До відділу розширення JYSK Україна — city-stores формат». Резерв через 14–21 день: `kver@jysk.com` (PR-manager) із проханням переадресувати. LinkedIn Ivanytsia/Svidovskov не використовуємо.
+10. **Accord Import (18)** — `accord.import@gmail.com` (з офіційного сайту accord.furniture/about). У темі: «До комерційного директора — південна сбутова точка». Другий verified email на офіційному домені публічно не знайдено — якщо #1 без відгуку 7 днів, оператор доискує вручну (footer accord.furniture, «Партнерство»). LinkedIn Грабара не використовуємо.
 
 ### Хвиля 3 — скор 17 (день 7–10)
 
