@@ -9,6 +9,122 @@
 
 ---
 
+## 2026-05-11 · Фаза 6 (Tier 2 outreach — 15 писем сгенерированы)
+
+### Что сделано
+
+Запущена `/generate-outreach tier2` по новым правилам (валидация
+контактов на Шаге 0 + жёсткие запреты в `letter-writer.md`). Из 20
+компаний Tier 2:
+
+- **15 READY** → letter_uk.md сгенерирован, в чек-листе verified email
+- **5 HOLD** → лист не генерируется, оператору задача поиска email
+- **0 BLOCKED**
+
+### Распределение по группам (Шаг 0)
+
+**READY (15):**
+1. Wild Hornets — info@wildhornets.com
+2. VIYAR — office@viyar.ua
+3. Фабрика реклами — fr@fr-od.com.ua
+4. EPAM Одеса — info@epam.com (через support → Бабейко)
+5. Comfy — info@comfy.ua (через support → Лахтадир)
+6. E-Zoo — realty@fozzy.ua (Mariia Savitskas, Head of Real Estate Fozzy)
+7. Swarmer — information@swarmer.tech
+8. Mindy Support — hello@mindy-support.com
+9. Delavega — **founder@delavega.ua** (самый персональный канал)
+10. Артель — print@artel.ua
+11. Gift-K — gift-k@ukr.net (Колоденко Олена, директор)
+12. UATAC — uatacteam@gmail.com
+13. Adelina Call Center — sales@adelinacallcenter.com (Чорнобривцев)
+14. Bosch Car Service — Konstantin.Klyahin@ua.bosch.com
+15. GlobalLogic Одеса — pr@globallogic.com (media-press → Facilities)
+
+**HOLD (5):**
+1. SkyFall — email помечен «не верифіковано» в profile.md
+2. Vyriy Industries — сайт vyriy.com на момент ресерча 403, email не найден
+3. M-TAC — verified email засновника / маркетинга не публичен
+4. DataArt — только расчётные адреса (`andrey.sylchuk@dataart.com` и
+   аналогичные); запрет использовать
+5. Extremstyle — сайт 403, email не публичен
+
+### Контекст: как сработала валидация контактов
+
+Шаг 0 (новое правило с 2026-05-11) полностью предотвратил отправку
+писем на «расчётные» адреса. Конкретные кейсы, где правило помогло:
+
+- **DataArt** — для одеського ЛПР Сильчука есть только расчётный
+  `andrey.sylchuk@dataart.com` (ZoomInfo подтверждает маску
+  `a***@dataart.com`). По старому правилу агент мог использовать его
+  как Канал #1; теперь — лист не отправляется, компания в HOLD.
+- **Adelina** — расчётный `o.chornobryvtsev@adelinacallcenter.com` явно
+  исключён в чек-листе; вместо него — verified `sales@adelinacallcenter.com`
+  с темой адресованной CEO.
+- **E-Zoo** — расчётный `m.savitskas@fozzy.ua` явно исключён; вместо —
+  verified `realty@fozzy.ua` от того же отдела с тем же фокусом.
+- **EPAM** — расчётные `n_babeyko@epam.com` форматы исключены; вместо —
+  verified `info@epam.com` с темой для маршрутизации.
+
+### Технология запуска
+
+- **3 батча по 5 параллельных letter-writer** (foreground, не
+  background — урок Phase 3). Все 15 завершились без падений.
+- Каждый агент получил в промпте: verified email Канал #1, явный hook
+  из priority_matrix, явные запреты («без цього тижня», «без rent-free»,
+  «без 5–10 років», «без відеовізиту», «канал — тільки email»).
+- **Grep-проверка после батчей:** запрещённых фраз в 15 letter_uk.md
+  не найдено. Звертань «Шановні колеги/партнери/однодумці» — 0.
+
+### Особенно сильные hooks Tier 2 (моя оценка)
+
+1. **Delavega** (founder@delavega.ua) — прямой канал к основателю
+   преміум-фабрики мягкой мебели; единственный среди Tier 2 с
+   founder@; высокий шанс быть прочитанным лично.
+2. **VIYAR** — pitch на «склад вже на Дальницькій, наш об'єкт у 1,5 км,
+   логічна інтеграція виробництва + шоурум фурнітури» — фактическая
+   близость к их же объекту.
+3. **Comfy** (Тетяна Лахтадир) — новое назначение Голови розвитку
+   мережі 27.04.2026, drive-through digital flagship формат под наш
+   объект, тема явно адресована новому ЛПР.
+4. **Wild Hornets** — публічні скарги сусідів на 2 локаціях =
+   объективная потребность в промзоне; точное совпадение с нашим
+   объектом.
+5. **Bosch Car Service** — самый честный pitch: «класичний СТО з
+   підйомниками не підходить (потолок 3 м), пропонуємо інший формат
+   для вашого пулу франчайзі — магазин запчастин + склад без ремпостів».
+
+### Что в следующий шаг
+
+1. **Оператор** запускает Tier 2 outreach по
+   `03_outreach/outreach_plan_tier2.md`:
+   - Хвиля 1 (день 1–3): 6 писем со скором 16–17 (Wild Hornets,
+     VIYAR, Фабрика реклами, Delavega, Swarmer, E-Zoo)
+   - Хвиля 2 (день 4–6): 4 IT/BPO (EPAM, Comfy, Mindy, GlobalLogic)
+   - Хвиля 3 (день 7–10): 5 остальных (Артель, Gift-K, UATAC,
+     Adelina, Bosch CS)
+2. **Параллельно** — оператор ищет email для 5 HOLD-компаний
+   согласно `contact_audit_tier2.md` (подсказки по URL для каждой).
+   Цикл 1–2 дня. Если найдено — добавить в profile.md и запустить
+   `/generate-outreach tier2` повторно (агент создаст лист только
+   для новых READY-компаний).
+3. **Logging:** в `03_outreach/sent_log.csv` каждое отправленное
+   письмо.
+4. **Follow-up через 7 дней** для не ответивших — шаблон в
+   outreach_plan_tier2.md.
+5. **CURRENT_PHASE.md** не меняется — остаёмся в `phase_6`.
+
+### Изменённые / созданные файлы
+
+- ➕ 15 × `02_priority/tier2/<slug>/letter_uk.md` (5 HOLD-компаний
+  без letter_uk.md по новому правилу: skyfall, vyriy-industries,
+  m-tac, dataart, extremstyle)
+- ➕ `03_outreach/contact_audit_tier2.md` (отчёт валидации,
+  READY/HOLD/BLOCKED + URL для оператора)
+- ➕ `03_outreach/outreach_plan_tier2.md` (3-волновой план + hold-list
+  + правила follow-up через email-only)
+
+---
+
 ## 2026-05-11 · Фаза 6 (правила outreach пересмотрены по итогам Tier 1)
 
 ### Обратная связь от собственника после рассылки 12 писем Tier 1
