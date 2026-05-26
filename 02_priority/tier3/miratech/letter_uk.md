@@ -1,6 +1,28 @@
-**Кому:** hr@miratech.ua
+**Кому:** hr@miratech.ua ⚠️ BOUNCE 2026-05-22 — адреса не існує
 **Тема:** Для HR Miratech: 1500 м² standalone в Одесі
 **Вкладення:** Фасад + склад на Дальницкой 1500кв.м..pdf
+
+---
+
+## ⚠️ STATUS: HOLD після bounce 2026-05-22
+
+Канал `hr@miratech.ua` не існує (Outlook 550 5.4.1 Recipient address rejected: Access denied, host `miratech-ua.mail.protection.outlook.com`).
+
+Альтернативний verified email не знайдено. Перевірені 2026-05-26:
+- `miratechgroup.com/contact/` — лише форма + телефони (Kyiv +380 44 206 4090), жодного email
+- `miratechgroup.com/career/` — лише форма «SEND YOUR CV», email відсутній
+- `miratechgroup.com/en/contact-hr-department` — 404
+- DOU `jobs.dou.ua/companies/miratech/` — email лише через CDN email-protection (зашифрований)
+- Корпоративний домен `@miratechgroup.com` — лише розрахункові `first.last@` (заборонено за правилом проєкту)
+- LinkedIn рекрутерів Ukraine: Alina Savchenko (Director of Recruiting, Kyiv), Olesya Shaydurova, Zinaida Kozachuk — email маскований на RocketReach
+
+**Оператору — варіанти подальших дій:**
+1. **Форма на сайті** — `https://miratechgroup.com/contact/` → обрати "General Inquiry" або "Career", написати pitch на 1500 м² Одеса (тіло листа нижче як шаблон)
+2. **Телефон Kyiv HQ** — `+380 44 206 4090`, попросити з'єднати з Central Services / Olga Leshchynska (Director, відповідає за оренду офісів вкл. Одесу) або з HR-відділом, дізнатись verified email
+3. **LinkedIn повідомлення** — Olga Leshchynska (`linkedin.com/in/olga-leshchynska-3a646446/`) як основна особа з повноваженнями по оренді в Одесі, або Alina Savchenko (Director of Recruiting Kyiv)
+4. Якщо отримано verified email — оновити поле **Кому:** вище і прибрати цей HOLD-блок
+
+---
 
 ---
 
@@ -31,11 +53,12 @@ Miratech — один з найстаріших українських IT-аут
 - [ ] Фасад + склад на Дальницкой 1500кв.м..pdf — універсальна КП (19 стор., 8 концепт-візуалізацій)
 - [ ] (опційно) `03_outreach/missing_renders/bpo_office.jpg` — категоріальний рендер фасаду під BPO/офіс формат, якщо підготовлений оператором
 
-**Канал відправки — тільки email:**
-- [ ] Канал #1 (verified email): `hr@miratech.ua` — підтверджено на DOU-сторінці компанії. Тема вже сформульована вище — скопіювати як є. HR ініціює запити на нові офіси частіше, ніж це здається.
-- [ ] Канал #2 (резерв): немає інших verified адрес. Корпоративний домен `@miratechgroup.com` дає тільки розрахункові формати (`o.leshchynska@miratechgroup.com`, `o.skydan@miratechgroup.com`) — **НЕ використовувати**. Якщо відповіді з Каналу #1 немає за 7 днів, оператор шукає інший verified email на офіційному сайті miratechgroup.com (розділи Contact / Careers Ukraine) або в публічних базах (DOU, ZoomInfo з підтвердженою верифікацією).
+**Канал відправки — HOLD (див. STATUS-блок вище):**
+- [x] ~~Канал #1: `hr@miratech.ua`~~ — **bounce 2026-05-22** (Outlook 550 Recipient address rejected). Адреса не існує / закрита.
+- [ ] Канал #2 (fallback): форма `https://miratechgroup.com/contact/` або дзвінок на Kyiv HQ `+380 44 206 4090` з проханням з'єднати з Central Services / HR — мета отримати verified email.
+- [ ] Канал #3 (fallback): LinkedIn-повідомлення Olga Leshchynska (Director Central Services, керує орендою офісів вкл. Одесу) — `linkedin.com/in/olga-leshchynska-3a646446/`.
 
-⚠️ Розрахункові адреси формату `first.last@miratechgroup.com` у чек-листі **НЕ використовуються** — половина дає bounce.
+⚠️ Розрахункові адреси формату `first.last@miratechgroup.com` (Leshchynska, Skydan, Savchenko, Melnichenko) у чек-листі **НЕ використовуються** — половина дає bounce.
 
 Для оператора (не відправляється):
 - [ ] profile.md — довідковий профіль компанії
